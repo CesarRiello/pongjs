@@ -21,6 +21,7 @@ var update = function() {
   player.update();
   computer.update(ball);
   ball.update(player.paddle, computer.paddle);
+
 };
 
 Ball.prototype.update = function(paddle1, paddle2) {
@@ -170,6 +171,12 @@ var ball = new Ball(width/2, height/2);
 var render = function() {
   context.fillStyle = background;
   context.fillRect(0, 0, width, height);
+
+  	context.font = "12px 'Press Start 2P'";
+  	context.fillStyle = foreground;
+  	var scoreText = "Player:" + score.player + " X Computer:" + score.computer;
+  	context.fillText(scoreText , 10, 20);
+
   player.render();
   computer.render();
   ball.render();
